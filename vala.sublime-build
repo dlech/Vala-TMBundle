@@ -1,0 +1,25 @@
+{
+	"shell_cmd": "make",
+	"working_dir": "${folder}",
+	"file_regex": "^.\/(?<filename>..[^:]*):(?<line number>[0-9]+).(?<column number>[0-9]+).(.*)(error: |warning: )(?<error message>.*)$",
+	"selector": "source.vala",
+
+	"variants":
+	[
+		{
+			"name": "Run",
+			"shell_cmd": "\"${file_path}/${file_base_name}\"",
+		},
+
+		{
+			"name": "Clean",
+			"shell_cmd": "make clean",
+		},
+
+		{
+			"name": "Debug",
+			"shell_cmd": "make debug",
+		},
+
+	],
+}
