@@ -4,8 +4,6 @@
 <dict>
 	<key>comment</key>
 	<string>Based heavily on the Java bundle's language syntax. TODO:
-* Closures
-* Delegates
 * Properties: Better support for properties.
 * Annotations
 * Error domains
@@ -586,7 +584,7 @@
 					<key>match</key>
 					<string>\b(this|base)\b</string>
 					<key>name</key>
-					<string>variable.language.vala</string>
+					<string>keyword.control.vala</string>
 				</dict>
 				<dict>
 					<key>match</key>
@@ -674,7 +672,7 @@
 				</dict>
 				<dict>
 					<key>match</key>
-					<string>\b(return|break|case|continue|default|do|while|for|foreach|switch|if|else|in|yield|get|set|value)\b</string>
+					<string>\b(return|break|case|continue|default|do|while|for|foreach|switch|if|else|endif|in|yield|get|set|value|delete)\b</string>
 					<key>name</key>
 					<string>keyword.control.vala</string>
 				</dict>
@@ -1052,7 +1050,7 @@
 			<key>comment</key>
 			<string>Not sure about unsafe and readonly</string>
 			<key>match</key>
-			<string>\b(public|private|protected|internal|static|final|sealed|virtual|override|abstract|readonly|volatile|dynamic|async|unsafe|out|ref|weak|owned|unowned|const)\b</string>
+			<string>\b(public|private|inline|delegate|protected|internal|static|final|sealed|virtual|override|abstract|readonly|volatile|dynamic|async|unsafe|out|ref|weak|owned|unowned|const)\b</string>
 		</dict>
 		<key>strings</key>
 		<dict>
