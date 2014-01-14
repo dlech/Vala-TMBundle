@@ -1,7 +1,7 @@
 {
 	"shell_cmd": "make",
 	"working_dir": "${folder}",
-	"file_regex": "^.\/(?<filename>..[^:]*):(?<line number>[0-9]+).(?<column number>[0-9]+).(.*)(error: |warning: )(?<error message>.*)$",
+	"file_regex": "^(?<filename>.*):(?<line number>[0-9]+).(?<column number>[0-9]+).(.*)(error: |warning: )(?<error message>.*)$",
 	"selector": "source.vala",
 
 	"variants":
@@ -19,6 +19,11 @@
 		{
 			"name": "Debug",
 			"shell_cmd": "make debug",
+		},
+
+		{
+			"name": "Install",
+			"shell_cmd": "make install",
 		},
 
 	],
