@@ -12,7 +12,7 @@
 	<key>scope</key>
 	<string>source.vala</string>
 	<key>tabTrigger</key>
-	<string>=&gt;</string>
+	<string>closure</string>
 	<key>uuid</key>
 	<string>43092F40-7EC9-4B4E-9D59-7BBAE353EA1B</string>
 </dict>
