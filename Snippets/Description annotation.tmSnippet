@@ -3,17 +3,14 @@
 <plist version="1.0">
 <dict>
 	<key>content</key>
-	<string>(${1}) =&gt; {
-	${0}
-}
-</string>
+	<string>[Description(name = "$0", blurb = "$1")]</string>
 	<key>name</key>
-	<string>closure</string>
+	<string>Descripion annotation</string>
 	<key>scope</key>
 	<string>source.vala</string>
 	<key>tabTrigger</key>
-	<string>closure</string>
+	<string>Desc</string>
 	<key>uuid</key>
-	<string>43092F40-7EC9-4B4E-9D59-7BBAE353EA1B</string>
+	<string>AC64F6AA-4F38-41EA-A4A8-31DF9EB7B045</string>
 </dict>
 </plist>

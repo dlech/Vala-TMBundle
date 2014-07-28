@@ -3,17 +3,14 @@
 <plist version="1.0">
 <dict>
 	<key>content</key>
-	<string>(${1}) =&gt; {
-	${0}
-}
-</string>
+	<string>assert ($0);</string>
 	<key>name</key>
-	<string>closure</string>
+	<string>assert</string>
 	<key>scope</key>
 	<string>source.vala</string>
 	<key>tabTrigger</key>
-	<string>closure</string>
+	<string>ass</string>
 	<key>uuid</key>
-	<string>43092F40-7EC9-4B4E-9D59-7BBAE353EA1B</string>
+	<string>5F766369-7A58-46F0-9F22-EC7BFB0F25AD</string>
 </dict>
 </plist>
