@@ -1051,7 +1051,7 @@
 			<key>comment</key>
 			<string>Not sure about unsafe and readonly</string>
 			<key>match</key>
-			<string>\b(public|private|inline|delegate|protected|internal|static|final|sealed|virtual|override|abstract|readonly|volatile|dynamic|async|unsafe|out|ref|weak|owned|unowned|const)\b</string>
+			<string>\b(public|private|inline|delegate|protected|internal|static|final|sealed|virtual|override|abstract|readonly|volatile|dynamic|async|unsafe|out|ref|weak|owned|unowned|const|signal)\b</string>
 		</dict>
 		<key>strings</key>
 		<dict>
