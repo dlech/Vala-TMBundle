@@ -612,7 +612,7 @@
 		<key>enums</key>
 		<dict>
 			<key>begin</key>
-			<string>^(?=\s*[A-Z0-9_]+\s*({|\(|,))</string>
+			<string>^(?=\s*[A-Z][A-Z0-9_]+\s*({|\(|,))</string>
 			<key>end</key>
 			<string>(?=;|})</string>
 			<key>patterns</key>
@@ -652,6 +652,10 @@
 							</array>
 						</dict>
 					</array>
+				</dict>
+				<dict>
+					<key>include</key>
+					<string>#comments</string>
 				</dict>
 			</array>
 		</dict>
