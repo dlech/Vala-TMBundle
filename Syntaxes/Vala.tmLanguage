@@ -5,7 +5,6 @@
 	<key>comment</key>
 	<string>Based heavily on the Java bundle's language syntax. TODO:
 * Properties: Better support for properties.
-* Annotations
 * Error domains
 * Named arguments
 * Array slicing, negative indexes, multidimensional
@@ -74,77 +73,6 @@
 				<dict>
 					<key>include</key>
 					<string>#object-types</string>
-				</dict>
-			</array>
-		</dict>
-		<key>annotations</key>
-		<dict>
-			<key>patterns</key>
-			<array>
-				<dict>
-					<key>begin</key>
-					<string>(@[^ (]+)(\()</string>
-					<key>beginCaptures</key>
-					<dict>
-						<key>1</key>
-						<dict>
-							<key>name</key>
-							<string>storage.type.annotation.vala</string>
-						</dict>
-						<key>2</key>
-						<dict>
-							<key>name</key>
-							<string>punctuation.definition.annotation-arguments.begin.vala</string>
-						</dict>
-					</dict>
-					<key>end</key>
-					<string>(\))</string>
-					<key>endCaptures</key>
-					<dict>
-						<key>1</key>
-						<dict>
-							<key>name</key>
-							<string>punctuation.definition.annotation-arguments.end.vala</string>
-						</dict>
-					</dict>
-					<key>name</key>
-					<string>meta.declaration.annotation.vala</string>
-					<key>patterns</key>
-					<array>
-						<dict>
-							<key>captures</key>
-							<dict>
-								<key>1</key>
-								<dict>
-									<key>name</key>
-									<string>constant.other.key.vala</string>
-								</dict>
-								<key>2</key>
-								<dict>
-									<key>name</key>
-									<string>keyword.operator.assignment.vala</string>
-								</dict>
-							</dict>
-							<key>match</key>
-							<string>(\w*)\s*(=)</string>
-						</dict>
-						<dict>
-							<key>include</key>
-							<string>#code</string>
-						</dict>
-						<dict>
-							<key>match</key>
-							<string>,</string>
-							<key>name</key>
-							<string>punctuation.seperator.property.vala</string>
-						</dict>
-					</array>
-				</dict>
-				<dict>
-					<key>match</key>
-					<string>@\w*</string>
-					<key>name</key>
-					<string>storage.type.annotation.vala</string>
 				</dict>
 			</array>
 		</dict>
@@ -293,12 +221,80 @@
 				</dict>
 			</array>
 		</dict>
+		<key>attribute</key>
+		<dict>
+			<key>begin</key>
+			<string>\[</string>
+			<key>beginCaptures</key>
+			<dict>
+				<key>0</key>
+				<dict>
+					<key>name</key>
+					<string>punctuation.definition.attribute.begin.vala</string>
+				</dict>
+			</dict>
+			<key>end</key>
+			<string>(\])</string>
+			<key>endCaptures</key>
+			<dict>
+				<key>1</key>
+				<dict>
+					<key>name</key>
+					<string>punctuation.definition.attribute.end.vala</string>
+				</dict>
+			</dict>
+			<key>name</key>
+			<string>meta.declaration.annotation.vala</string>
+			<key>patterns</key>
+			<array>
+				<dict>
+					<key>begin</key>
+					<string>\(</string>
+					<key>end</key>
+					<string>\)</string>
+					<key>patterns</key>
+					<array>
+						<dict>
+							<key>captures</key>
+							<dict>
+								<key>1</key>
+								<dict>
+									<key>name</key>
+									<string>constant.other.key.vala</string>
+								</dict>
+								<key>2</key>
+								<dict>
+									<key>name</key>
+									<string>keyword.operator.assignment.vala</string>
+								</dict>
+							</dict>
+							<key>match</key>
+							<string>(\w*)\s*(=)</string>
+						</dict>
+						<dict>
+							<key>include</key>
+							<string>#code</string>
+						</dict>
+						<dict>
+							<key>match</key>
+							<string>,</string>
+							<key>name</key>
+							<string>punctuation.seperator.property.vala</string>
+						</dict>
+					</array>
+				</dict>
+				<dict>
+					<key>match</key>
+					<string>\w+</string>
+					<key>name</key>
+					<string>support.class.attribute.vala</string>
+				</dict>
+			</array>
+		</dict>
 		<key>class</key>
 		<dict>
 			<key>begin</key>
-			<string>(?=\w?[\w\s]*(?:class|(?:@)?interface|enum|struct|namespace)\s+\w+)</string>
-			<key>comment</key>
-			<string>attempting to put namespace in here.</string>
+			<string>(?=\w?[\w\s]*(?:class|(?:@)?interface|enum|struct)\s+\w+)</string>
 			<key>end</key>
 			<string>}</string>
 			<key>endCaptures</key>
@@ -327,7 +323,7 @@
 						<key>1</key>
 						<dict>
 							<key>name</key>
-							<string>storage.modifier.vala</string>
+							<string>storage.type.vala</string>
 						</dict>
 						<key>2</key>
 						<dict>
@@ -336,7 +332,7 @@
 						</dict>
 					</dict>
 					<key>match</key>
-					<string>(class|(?:@)?interface|enum|struct|namespace)\s+([\w\.]+)</string>
+					<string>(class|(?:@)?interface|enum|struct)\s+([\w\.]+)</string>
 					<key>name</key>
 					<string>meta.class.identifier.vala</string>
 				</dict>
@@ -433,7 +429,7 @@
 				</dict>
 				<dict>
 					<key>include</key>
-					<string>#annotations</string>
+					<string>#attribute</string>
 				</dict>
 				<dict>
 					<key>include</key>
@@ -452,6 +448,10 @@
 				<dict>
 					<key>include</key>
 					<string>#comments</string>
+				</dict>
+				<dict>
+					<key>include</key>
+					<string>#namespace</string>
 				</dict>
 				<dict>
 					<key>include</key>
@@ -501,6 +501,10 @@
 				<dict>
 					<key>include</key>
 					<string>#all-types</string>
+				</dict>
+				<dict>
+					<key>include</key>
+					<string>#attribute</string>
 				</dict>
 			</array>
 		</dict>
@@ -612,11 +616,19 @@
 		<key>enums</key>
 		<dict>
 			<key>begin</key>
-			<string>^(?=\s*[A-Z][A-Z0-9_]+\s*({|\(|,))</string>
+			<string>(?=\s*[A-Z][A-Z0-9_]+\s*({|\(|,))</string>
 			<key>end</key>
 			<string>(?=;|})</string>
 			<key>patterns</key>
 			<array>
+				<dict>
+					<key>include</key>
+					<string>#comments</string>
+				</dict>
+				<dict>
+					<key>include</key>
+					<string>#attribute</string>
+				</dict>
 				<dict>
 					<key>begin</key>
 					<string>\w+</string>
@@ -652,10 +664,6 @@
 							</array>
 						</dict>
 					</array>
-				</dict>
-				<dict>
-					<key>include</key>
-					<string>#comments</string>
 				</dict>
 			</array>
 		</dict>
@@ -813,48 +821,35 @@
 		<key>namespace</key>
 		<dict>
 			<key>begin</key>
-			<string>^(?=\s*[A-Z0-9_]+\s*({|\(|,))</string>
-			<key>comment</key>
-			<string>This is not quite right. See the class grammar right now</string>
+			<string>(namespace)\s+(\w[\w\.]+)</string>
+			<key>beginCaptures</key>
+			<dict>
+				<key>1</key>
+				<dict>
+					<key>name</key>
+					<string>storage.type.namespace.vala</string>
+				</dict>
+				<key>2</key>
+				<dict>
+					<key>name</key>
+					<string>entity.name.type.namespace.vala</string>
+				</dict>
+			</dict>
 			<key>end</key>
-			<string>(?=;|})</string>
+			<string>}</string>
+			<key>endCaptures</key>
+			<dict>
+				<key>0</key>
+				<dict>
+					<key>name</key>
+					<string>punctuation.section.namespace.end.vala</string>
+				</dict>
+			</dict>
 			<key>patterns</key>
 			<array>
 				<dict>
-					<key>begin</key>
-					<string>\w+</string>
-					<key>beginCaptures</key>
-					<dict>
-						<key>0</key>
-						<dict>
-							<key>name</key>
-							<string>constant.other.namespace.vala</string>
-						</dict>
-					</dict>
-					<key>end</key>
-					<string>(?=,|;|})</string>
-					<key>name</key>
-					<string>meta.namespace.vala</string>
-					<key>patterns</key>
-					<array>
-						<dict>
-							<key>include</key>
-							<string>#parens</string>
-						</dict>
-						<dict>
-							<key>begin</key>
-							<string>{</string>
-							<key>end</key>
-							<string>}</string>
-							<key>patterns</key>
-							<array>
-								<dict>
-									<key>include</key>
-									<string>#code</string>
-								</dict>
-							</array>
-						</dict>
-					</array>
+					<key>include</key>
+					<string>#code</string>
 				</dict>
 			</array>
 		</dict>
@@ -1053,7 +1048,7 @@
 				</dict>
 			</dict>
 			<key>match</key>
-			<string>\b(public|private|inline|delegate|protected|internal|static|final|sealed|virtual|override|abstract|volatile|dynamic|async|out|ref|weak|owned|unowned|const|signal)\b</string>
+			<string>\b(public|private|protected|internal|extern|static|virtual|override|abstract|async|out|ref|weak|owned|unowned|const|delegate|signal)\b</string>
 		</dict>
 		<key>strings</key>
 		<dict>
